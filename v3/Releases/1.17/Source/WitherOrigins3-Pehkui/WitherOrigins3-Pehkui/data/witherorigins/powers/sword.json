@@ -1,9 +1,0 @@
-{
-    "type": "origins:starting_equipment",
-    "stacks": [
-        {
-            "item": "minecraft:stone_sword"
-        }
-    ],
-    "hidden": true
-}
