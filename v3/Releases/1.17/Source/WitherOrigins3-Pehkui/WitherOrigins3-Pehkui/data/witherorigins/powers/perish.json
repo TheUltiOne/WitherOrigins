@@ -1,0 +1,91 @@
+{
+    "type": "origins:multiple",
+
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 5,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "witherorigins:perish_cooldown",
+                "comparison": "!=",
+                "compare_to": 0
+            }
+        }
+    },
+
+    "death": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul ~ ~ ~ 2 2 2 0.1 200 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~ ~ 3 3 3 0.1 10 1 300 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither_skeleton.death player @s ~ ~ ~ 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute unless block ~ ~-1 ~ air unless block ~ ~-1 ~ lava unless block ~ ~-1 ~ water run setblock ~ ~0 ~ wither_rose",
+                    "permission_level": 4,
+                    "condition": {
+                        "type": "origins:on_block"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run effect give @e[distance=1..10] wither 10 5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "witherorigins:perish_cooldown",
+                    "change": 240
+                }
+            ]
+        },
+    
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "witherorigins:perish_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "cooldown_countdown": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "witherorigins:perish_cooldown",
+			"change": -1
+		}
+    },
+    
+    "name": "Perish",
+    "description": "On death, leave a Wither death cloud. This gives everything around you Wither and leaves a Wither Rose behind."
+}
