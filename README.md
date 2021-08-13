@@ -17,7 +17,7 @@ Initially a Human, this poor soul has been attacked by the Wither in attempt to 
 + Perish: on death, leave a Wither Death Cloud which does severe damage and leave behind a wither rose.
 + You are able to consume a Nether Star in order to get these perks:
     + Ability to fly
-    + Ability to throw wither skulls (1.16 version only -- this is a bug in Origins 1.0.0)
+    + Ability to throw wither skulls
     + Do not take fall damage
     + 44 total HP instead of 20
     + Strength 4
