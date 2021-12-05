@@ -4,8 +4,8 @@
     "timer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 180,
-        "start_value": 180,
+        "max": 500,
+        "start_value": 500,
         "hud_render": {
             "should_render": true,
             "bar_index": 5,
@@ -18,7 +18,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "witherorigins:withercurse_timer",
-            "change": 180
+            "change": 500
         },
 
         "cooldown": 0,
